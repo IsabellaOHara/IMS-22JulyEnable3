@@ -73,7 +73,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Versioning
 
-We use * [Git](https://git-scm.com) for version control.
+We use [Git](https://git-scm.com) for version control.
 
 ## Authors
 
@@ -88,8 +88,8 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Thank you to Chirs Perrins for the inital work and code on this project.
+* An additional thank you to Victoria, Jordan, Anoush and Chris for all your teaching, guidance and help over the past 5 weeks enabling me to complete this project.
+
 # IMS-Start
 # IMS-Start
