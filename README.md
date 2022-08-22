@@ -1,7 +1,7 @@
 Coverage: 34%
-# Project Title
+# Inventory Management System
 
-One Paragraph of project description goes here
+Creating a functional inventory management system application using Java which interacts with a managed database on MySQL.
 
 ## Getting Started
 
@@ -67,14 +67,18 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
+* [MySQL](https://www.mysql.com) - Database Management System
+* [Java](https://www.java.com) - Back End Programming Language
+* [JUnit)(https://junit.org/junit5/) - Unit testing
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning.
+We use * [Git](https://git-scm.com) for version control.
 
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
+* **Isabella O'Hara** - *Project completion* - [IsabellaOHara](https://github.com/IsabellaOHara)
 
 ## License
 
