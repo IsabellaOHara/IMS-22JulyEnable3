@@ -69,7 +69,7 @@ Add additional notes about how to deploy this on a live system
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [MySQL](https://www.mysql.com) - Database Management System
 * [Java](https://www.java.com) - Back End Programming Language
-* [JUnit)(https://junit.org/junit5/) - Unit testing
+* [JUnit](https://junit.org/junit5/) - Unit testing
 
 ## Versioning
 
