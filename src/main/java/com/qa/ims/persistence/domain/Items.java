@@ -6,7 +6,7 @@ public class Items {
 
 		private Long id;
 		private String itemName;
-		private double price;
+		private static double price;
 		
 		public Items(String itemName, double price) {
 			this.setItemName(itemName);
@@ -35,7 +35,7 @@ public class Items {
 			this.itemName = itemName;
 		}
 
-		public double getPrice() {
+		public static double getPrice() {
 			return price;
 		}
 

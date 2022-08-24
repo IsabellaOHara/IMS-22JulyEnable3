@@ -95,6 +95,13 @@ public class OrdersController implements CrudController<Orders> {
 		return ordersDAO.delete(id);
 	}
 
-	
+	public void calculatePrice() {
+		LOGGER.info("Please enter the order id of the order you want the price for");
+		Long orderId = utils.getLong();
+		LOGGER.info("The total cost of this order is: " + ordersItems.calulate(orderId));
+		
+		
+		
+	}
 	
 }

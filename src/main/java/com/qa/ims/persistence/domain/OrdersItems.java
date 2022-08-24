@@ -19,10 +19,6 @@ public class OrdersItems {
 		this.setQuantity(quantity);
 	}
 
-	public OrdersItems(List<OrdersItems> orderDetails) {
-		
-	}
-
 	public Long getQuantity() {
 		return quantity;
 	}
@@ -47,6 +43,14 @@ public class OrdersItems {
 		this.itemId = itemId;
 	}
 	
-	
+	public double calulate(Long id) {
+		Long quant = quantity;
+		Long item = itemId;
+		double price = Items.getPrice();
+		
+		double total = quant * price;
+		
+		return total;
+	}
 	
 }
