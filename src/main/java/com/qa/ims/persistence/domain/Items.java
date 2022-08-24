@@ -8,6 +8,8 @@ public class Items {
 		private String itemName;
 		private double price;
 		
+		public Items() {}
+		
 		public Items(String itemName, double price) {
 			this.setItemName(itemName);
 			this.setPrice(price);
