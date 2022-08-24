@@ -50,29 +50,8 @@ public class Items {
 			return "id: " + id + " item name: " + itemName + " price: " + price;
 		}
 
-		@Override
-		public int hashCode() {
-			return Objects.hash(id, itemName, price);
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Items other = (Items) obj;
-			return id == other.id && Objects.equals(itemName, other.itemName)
-					&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
 		
-		
-		
-		
-		
-		
-	}
+	
 	
 	
 }
