@@ -22,7 +22,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 	
 	@Override
 	public OrdersItems modelFromResultSet(ResultSet resultSet) throws SQLException {
-		Long orderId = resultSet.getLong("id");
+		Long orderId = resultSet.getLong("order_id");
 		Long itemId = resultSet.getLong("item_id");
 		Long quantity = resultSet.getLong("quantity");
 		return new OrdersItems(orderId, itemId, quantity);
@@ -112,7 +112,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 	@Override
 	public int delete(long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM customers WHERE id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders_items WHERE id = ?");) {
 			statement.setLong(1, id);
 			return statement.executeUpdate();
 		} catch (Exception e) {
@@ -122,7 +122,39 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 		return 0;
 	}
 
+	public int deleteItem(long id, long itemId) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("DELETE FROM orders_items WHERE id = ? AND item_id = ?");) {
+			statement.setLong(1, id);
+			statement.setLong(2, itemId);
+			return statement.executeUpdate();
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return 0;
+		
 
+	}
+	
+	public OrdersItems calculate(Long id) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("SELECT o.id, i.price * o.quantity AS total_price FROM orders_items o JOIN items i ON i.id = o.item_id WHERE o.id = ?");) {
+			statement.setLong(1, id);
+			try (ResultSet resultSet = statement.executeQuery();) {
+				resultSet.next();
+				return modelFromResultSet(resultSet);
+			}
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return null;
+
+	}
+	
 
 	
 	

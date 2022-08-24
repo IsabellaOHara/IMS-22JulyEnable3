@@ -1,14 +1,9 @@
 package com.qa.ims.persistence.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
 public class OrdersItems {
 
 	
-	private Long quantity;
+	private static Long quantity;
 	private Long id;
 	private Long itemId;
 
@@ -43,13 +38,5 @@ public class OrdersItems {
 		this.itemId = itemId;
 	}
 	
-	public double calulate(Long id) {
-		Long quant = quantity;
-		double price = Items.getPrice();
-		
-		double total = quant * price;
-		
-		return total;
-	}
-	
+
 }

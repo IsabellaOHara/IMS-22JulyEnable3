@@ -49,7 +49,7 @@ public class OrdersController implements CrudController<Orders> {
 		} else if (option == 2) {
 			LOGGER.info("Please enter the order id of the order you want the price for");
 			Long orderId = utils.getLong();
-			LOGGER.info("The total cost of this order is: " + ordersItems.calulate(orderId));
+			LOGGER.info("The total cost of this order is: " + oi.calculate(orderId));
 			
 		} else {
 			LOGGER.info("This is not a valid option selection"); 
@@ -80,7 +80,7 @@ public class OrdersController implements CrudController<Orders> {
 			LOGGER.info("Please enter the quanitity you would like of this item");
 			Long quantity = utils.getLong();
 			
-			OrdersItems ordersItems = oi.create(new OrdersItems(orders.getId(), itemId , quantity));
+			OrdersItems ordersItems = oi.create(new OrdersItems(orders.getOrderId(), itemId , quantity));
 			LOGGER.info("Item added to order");
 	
 			LOGGER.info("Would you like to order another item? Y/N?");
@@ -110,18 +110,28 @@ public class OrdersController implements CrudController<Orders> {
 
 	@Override
 	public int delete() {
+		LOGGER.info("Please enter the number of the option you would like"
+				+ "\n [1] delete an entire order from the system" +
+				"\n [2] delete an item from an order");
+		int response = scan.nextInt();
+		if(response == 1) {
 		LOGGER.info("Please enter the id of the order you would like to delete");
 		Long id = utils.getLong();
-		return ordersDAO.delete(id);
+		int orders = ordersDAO.delete(id);
+		return ordersDAO.deletePhaseTwo(id);
+		}
+		else if(response == 2) {
+			LOGGER.info("Please enter the id of the order from which you would like to delete an item");
+			Long id = utils.getLong();
+			LOGGER.info("Please enter the id of the item you wish to delete");
+			Long itemId = utils.getLong();
+			return oi.deleteItem(id, itemId);
+		} else {
+			 LOGGER.info("That is not a valid selection");
+		}
+	 return 0;
 	}
 
-	public void calculatePrice() {
-		LOGGER.info("Please enter the order id of the order you want the price for");
-		Long orderId = utils.getLong();
-		LOGGER.info("The total cost of this order is: " + ordersItems.calulate(orderId));
-		
-		
-		
-	}
+
 	
 }
