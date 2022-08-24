@@ -45,7 +45,6 @@ public class OrdersItems {
 	
 	public double calulate(Long id) {
 		Long quant = quantity;
-		Long item = itemId;
 		double price = Items.getPrice();
 		
 		double total = quant * price;
