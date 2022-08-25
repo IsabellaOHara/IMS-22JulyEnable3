@@ -3,7 +3,7 @@ package com.qa.ims.persistence.domain;
 public class OrdersItems {
 
 	
-	private static Long quantity;
+	private Long quantity;
 	private Long id;
 	private Long itemId;
 	private Long totalPrice;
