@@ -1,5 +1,7 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.Objects;
+
 public class OrdersItems {
 
 	
@@ -37,6 +39,25 @@ public class OrdersItems {
 	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, itemId, quantity);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OrdersItems other = (OrdersItems) obj;
+		return Objects.equals(id, other.id) && Objects.equals(itemId, other.itemId)
+				&& Objects.equals(quantity, other.quantity);
+	}
+	
 	
 	
 	

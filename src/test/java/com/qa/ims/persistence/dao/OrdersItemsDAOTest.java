@@ -13,6 +13,8 @@ import com.qa.ims.utils.DBUtils;
 
 public class OrdersItemsDAOTest {
 
+	//none of these tests worked - SQL error "Table ORDERS_ITEMS not found"
+	
 	private final OrdersItemsDAO DAO = new OrdersItemsDAO();
 	
 	@Before

@@ -30,14 +30,14 @@ public class ItemsDAOTest {
 	@Test
 	public void testReadAll() {
 		List<Items> expected = new ArrayList<>();
-		expected.add(new Items(1L, "hoodie", 50.00));
+		expected.add(new Items(1L, "green sweatshirt", 35.50));
 		assertEquals(expected, DAO.readAll());
 	}
 	
 	@Test
 	public void testRead() {
 		final long id = 1L;
-		assertEquals(new Items(id, "hoodie", 50.00), DAO.read(id));
+		assertEquals(new Items(id, "green sweatshirt", 35.50), DAO.read(id));
 		
 	}
 	

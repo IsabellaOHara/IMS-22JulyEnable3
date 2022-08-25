@@ -76,7 +76,11 @@ public class OrdersController implements CrudController<Orders> {
 		return orders;
 	}			
 
-	//updating the customer associated with the order
+	/*
+	 * This method doesn't work => because of foreign key constraint (can't update
+	 * the customer ID) => not needed to reach MVP but method is required by the 
+	 * CRUD controller interface, hence why still here.
+	 */
 	@Override
 	public Orders update() {
 		LOGGER.info("Please enter the id of the order you would like to update");
