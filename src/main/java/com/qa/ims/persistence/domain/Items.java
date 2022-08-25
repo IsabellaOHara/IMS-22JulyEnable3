@@ -64,15 +64,12 @@ public class Items {
 			if (getClass() != obj.getClass())
 				return false;
 			Items other = (Items) obj;
-			return id == other.id && Objects.equals(itemName, other.itemName)
+			return Objects.equals(id, other.id) && Objects.equals(itemName, other.itemName)
 					&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
+		}
+
 		
-		
-		
-		
-		
-		
-	}
+	
 	
 	
 }

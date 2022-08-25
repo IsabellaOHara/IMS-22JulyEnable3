@@ -1,12 +1,13 @@
 package com.qa.ims.persistence.domain;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Orders {
 
 	private Long orderId;
 	private Long customerId;
+	
+	public Orders() {}
 	
 	public Orders(Long customerId) {
 		super();
@@ -55,10 +56,7 @@ public class Orders {
 			return false;
 		Orders other = (Orders) obj;
 		return Objects.equals(customerId, other.customerId) && Objects.equals(orderId, other.orderId);
-	}
-	
-	
-	
+	}	
 	
 	
 	
