@@ -19,16 +19,16 @@ PRIMARY KEY (`id`)
 );
 
 CREATE TABLE IF NOT EXISTS orders (
-`id` INT NOT NULL AUTO_INCREMENT,
+`order_id` INT NOT NULL AUTO_INCREMENT,
 `customer_id` INT NOT NULL,
-PRIMARY KEY (`id`),
+PRIMARY KEY (`order_id`), 
 FOREIGN KEY (`customer_id`) REFERENCES `customers`(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS orders_items (
-`order_id` INT NOT NULL,
+`id` INT NOT NULL,
 `item_id` INT NOT NULL,
 quantity INT NOT NULL,
-FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`),
+FOREIGN KEY (`id`) REFERENCES `orders`(`order_id`),
 FOREIGN KEY (`item_id`) REFERENCES `items`(`id`)
 );
