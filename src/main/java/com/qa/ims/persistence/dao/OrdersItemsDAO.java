@@ -26,6 +26,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 		Long itemId = resultSet.getLong("item_id");
 		Long quantity = resultSet.getLong("quantity");
 		return new OrdersItems(orderId, itemId, quantity);
+		
 	}
 	
 	@Override
@@ -138,6 +139,13 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 
 	}
 	
+	public OrdersItems calculatorModelFromResultSet(ResultSet resultSet) throws SQLException {
+		Long id = resultSet.getLong("id");
+		Long totalPrice = resultSet.getLong("total_price");
+		return new OrdersItems(id, totalPrice);
+	}
+	
+	
 	public OrdersItems calculate(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
@@ -145,7 +153,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 			statement.setLong(1, id);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
-				return modelFromResultSet(resultSet);
+				return calculatorModelFromResultSet(resultSet);
 			}
 		} catch (Exception e) {
 			LOGGER.debug(e);

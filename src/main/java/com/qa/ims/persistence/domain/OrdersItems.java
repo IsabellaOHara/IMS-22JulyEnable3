@@ -6,6 +6,7 @@ public class OrdersItems {
 	private static Long quantity;
 	private Long id;
 	private Long itemId;
+	private Long totalPrice;
 
 	public OrdersItems(Long id, Long itemId, Long quantity) {
 		super();
@@ -14,6 +15,11 @@ public class OrdersItems {
 		this.setQuantity(quantity);
 	}
 
+	public OrdersItems(Long id, Long totalPrice) {
+		this.setId(id);
+		this.totalPrice = totalPrice;
+	}
+	
 	public Long getQuantity() {
 		return quantity;
 	}
