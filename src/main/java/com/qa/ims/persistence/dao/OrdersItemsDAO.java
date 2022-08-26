@@ -19,7 +19,7 @@ import com.qa.ims.utils.DBUtils;
 public class OrdersItemsDAO implements Dao<OrdersItems>{
 	
 	public static final Logger LOGGER = LogManager.getLogger();
-	
+	 
 	@Override
 	public OrdersItems modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long orderId = resultSet.getLong("id");
@@ -63,7 +63,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 	public OrdersItems create(OrdersItems ordersItems) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO orders_items(id, item_id, quantity) VALUES (?,?,?)");) {
+						.prepareStatement("INSERT INTO orders_items (id, item_id, quantity) VALUES (?,?,?)");) {
 			statement.setLong(1, ordersItems.getId());
 			statement.setLong(2, ordersItems.getItemId());
 			statement.setLong(3, ordersItems.getQuantity());

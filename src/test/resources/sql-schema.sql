@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS `orders`
    FOREIGN KEY (`customer_id`) REFERENCES customers (`id`)
 );
 
-CREATE TABLE IF NOT EXISTS orders_items
+CREATE TABLE IF NOT EXISTS `orders_items`
 (
-   `id` INT (11) NOT NULL,
-   `item_id` INT (11) NOT NULL,
-   `quantity` INT (11) NOT NULL,
+   `id` INT NOT NULL,
+   `item_id` INT NOT NULL,
+   `quantity` INT NOT NULL,
    FOREIGN KEY (`id`) REFERENCES `orders` (`order_id`),
    FOREIGN KEY (`item_id`) REFERENCES `items` (`item_id`)
 );
