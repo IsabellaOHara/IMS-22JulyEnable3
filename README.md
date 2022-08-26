@@ -1,68 +1,95 @@
 Coverage: 34%
 # Inventory Management System
 
-Creating a functional inventory management system application using Java which interacts with a managed database on MySQL.
+This is functional inventory management system (IMS) application using Java which interacts with a managed database on MySQL.
+
+This IMS can:
+- Create: customers with a first and last name, items with a name and price, orders with a connected customer ID and it can add (multiple) items to orders using the item ID.
+- Read: all customer details, detials about the items in the inventory and the orders.
+- Update: customers first and last name, items name and price.
+- Delete: Customers details, items in the inventory, entire orders and items from an order.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+1. Clone (or fork) this repo from https://github/IsabellaOHara/IMS-22JulyEnable3
+2. To run the JAR file you will need a Java Runtime Environment. If you have this double clicking on the JAR file will allow you to run this application from your command line or terminal.
+
+Example user story path:
+As an employee, I want to add an item into the system, so that I can put new items in the inventory.
+1. Start the application
+2. Type "items"
+3. Type "create"
+4. Type in the name of the item
+5. Type in the price of the item
+6. Finished! You've added an item to the inventory.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+This IMS was built on:
+- Maven version 3.8.6 which can be downloaded here: https://maven.apache.org/download.cgi
+- Java version 1.8 which can be downloaded here: https://www.java.com/download/ie_manual.jsp
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+To continue developing this application (on Eclipse)
+1. Clone (or fork) this repo from https://github/IsabellaOHara/IMS-22JulyEnable3 into your eclipse-workspace file.
+2. Go to File => Import => Maven => Existing Maven Projects => Browse your directory to find the file => finish.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
-
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+Unit tests were completed using JUnit. 
+Unit tests were run on the domain classes (Customers, Orders, Items, OrdersItems) and the DAO classes (CustomersDAO, OrdersDAO, ItemsDAO, OrdersItemsDAO). The tests in the DAO classes were run using a mock database (see below for example)
 
 ```
-Give an example
+//For example in the ItemsDAO class
+@Before
+	public void setup() {
+		DBUtils.connect();
+		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data.sql");
+	}
+
+	@Test 
+	public void testCreate() {
+		final Items newItem = new Items(2L, "hoodie", 50.00);
+		assertEquals(newItem, DAO.create(newItem));
+	}
 ```
 
 ### Integration Tests 
-Explain what these tests test, why and how to run them
+The integration tests were done using Mockito. These test allow us to check the behaviour of the system without having to connect to the database.
+These tests were run on the Controller classes (CustomerController, ItemsController, OrdersController, OrdersItemsController)
 
 ```
-Give an example
+//An example from the ItemsController
+@Mock
+	private Utils utils;
+	
+	@Mock
+	private ItemsDAO dao;
+	
+	@InjectMocks
+	private ItemsController controller;
+	
+	@Test
+	public void testCreate() {
+		final String I_NAME = "tshirt";
+		final double PRICE = 25.00;
+		final Items created = new Items(I_NAME, PRICE);
+		
+		Mockito.when(utils.getString()).thenReturn(I_NAME);
+		Mockito.when(utils.getDouble()).thenReturn(PRICE);
+		Mockito.when(dao.create(created)).thenReturn(created);
+		
+		assertEquals(created, controller.create());
+		
+		Mockito.verify(utils, Mockito.times(1)).getString();
+		Mockito.verify(utils, Mockito.times(1)).getDouble();
+		Mockito.verify(dao, Mockito.times(1)).create(created);
+	}
+	
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
