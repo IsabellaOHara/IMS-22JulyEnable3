@@ -11,9 +11,6 @@ This IMS can:
 
 ## Getting Started
 
-1. Clone (or fork) this repo from https://github/IsabellaOHara/IMS-22JulyEnable3
-2. To run the JAR file you will need a Java Runtime Environment. If you have this double clicking on the JAR file will allow you to run this application from your command line or terminal.
-
 Example user story path:
 As an employee, I want to add an item into the system, so that I can put new items in the inventory.
 1. Start the application
@@ -39,7 +36,7 @@ To continue developing this application (on Eclipse)
 
 ### Unit Tests 
 
-Unit tests were completed using JUnit. 
+Unit tests were completed using JUnit version 4.13.1 
 Unit tests were run on the domain classes (Customers, Orders, Items, OrdersItems) and the DAO classes (CustomersDAO, OrdersDAO, ItemsDAO, OrdersItemsDAO). The tests in the DAO classes were run using a mock database (see below for example)
 
 ```
@@ -58,7 +55,8 @@ Unit tests were run on the domain classes (Customers, Orders, Items, OrdersItems
 ```
 
 ### Integration Tests 
-The integration tests were done using Mockito. These test allow us to check the behaviour of the system without having to connect to the database.
+The integration tests were done using Mockito version 3.7.7
+These test allow us to check the behaviour of the system without having to connect to the database.
 These tests were run on the Controller classes (CustomerController, ItemsController, OrdersController, OrdersItemsController)
 
 ```
