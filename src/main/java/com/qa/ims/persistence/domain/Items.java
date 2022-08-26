@@ -21,9 +21,6 @@ public class Items {
 			this.setPrice(price);
 		}
 
-		public Items() {
-			
-		}
 
 		public Long getId() {
 			return id;

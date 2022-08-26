@@ -34,32 +34,33 @@ public class OrdersController implements CrudController<Orders> {
 	}
 
 	//reading all orders into the logger 
+	//commented out sections are from calculator that I couldn't get to work
 	@Override
 	public List<Orders> readAll() {
-		LOGGER.info("Please enter the number of the action you would like:" 
-				+ "\n [1] View all the orders" 
-				+ "\n [2] View the price of an order");
-		int option = scan.nextInt();
-		if(option == 1) {
+//		LOGGER.info("Please enter the number of the action you would like:" 
+//				+ "\n [1] View all the orders" 
+//				+ "\n [2] View the price of an order");
+//		int option = scan.nextInt();
+//		if(option == 1) {
 		List<Orders> orders = ordersDAO.readAll();
 		for (Orders order : orders) {
 			LOGGER.info(orders);
 			return orders;
 		}
-		} else if (option == 2) {
-			LOGGER.info("Please enter the order id of the order you want the price for");
-			Long orderId = utils.getLong();
-			LOGGER.info("The total cost of this order is: " + oi.calculate(orderId));
-			
-		} else {
-			LOGGER.info("This is not a valid option selection"); 
-		}
-		
-		List<Orders> orders = ordersDAO.readAll();
-		for (Orders order : orders) {
-			LOGGER.info(orders);
-			return orders; 
-			}
+//		} else if (option == 2) {
+//			LOGGER.info("Please enter the order id of the order you want the price for");
+//			Long orderId = utils.getLong();
+//			LOGGER.info("The total cost of this order is: " + oi.calculate(orderId));
+//			
+//		} else {
+//			LOGGER.info("This is not a valid option selection"); 
+//		}
+//		
+//		List<Orders> orders = ordersDAO.readAll();
+//		for (Orders order : orders) {
+//			LOGGER.info(orders);
+//			return orders; 
+//			}
 		return orders;
 	}
 
@@ -77,7 +78,7 @@ public class OrdersController implements CrudController<Orders> {
 			while(isRunning) {
 			LOGGER.info("Please enter the id of the item you would like to order");
 			Long itemId = utils.getLong();
-			LOGGER.info("Please enter the quanitity you would like of this item");
+			LOGGER.info("Please enter the quantity you would like of this item");
 			Long quantity = utils.getLong();
 			
 			OrdersItems ordersItems = oi.create(new OrdersItems(orders.getOrderId(), itemId , quantity));
