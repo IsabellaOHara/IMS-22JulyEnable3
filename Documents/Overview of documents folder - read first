@@ -7,3 +7,4 @@ A brief tour of what this folder and each file contains:
 - Git branches diagram => diagram showing the branching structure I used throughout the project.
 - Testing review => written review and analysis of testing.
 - DAO classes UML => UML of the DAO classes and interface.
+- Controller UML => UML of the controller classes and interface.
