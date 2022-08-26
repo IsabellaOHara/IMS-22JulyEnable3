@@ -1,4 +1,4 @@
-Coverage: 34%
+Coverage: 61%
 # Inventory Management System
 
 This is functional inventory management system (IMS) application using Java which interacts with a managed database on MySQL.
@@ -111,12 +111,7 @@ We use [Git](https://git-scm.com) for version control.
 
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
 
-*For help in [Choosing a license](https://choosealicense.com/)*
-
 ## Acknowledgments
 
 * Thank you to Chirs Perrins for the inital work and code on this project.
 * An additional thank you to Victoria, Jordan, Anoush and Chris for all your teaching, guidance and help over the past 5 weeks enabling me to complete this project.
-
-# IMS-Start
-# IMS-Start
