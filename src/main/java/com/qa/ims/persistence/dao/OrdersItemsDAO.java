@@ -19,6 +19,10 @@ import com.qa.ims.utils.DBUtils;
 public class OrdersItemsDAO implements Dao<OrdersItems>{
 	
 	public static final Logger LOGGER = LogManager.getLogger();
+	Items item = new Items();
+	OrdersItems ordersItems = new OrdersItems();
+	
+
 	
 	@Override
 	public OrdersItems modelFromResultSet(ResultSet resultSet) throws SQLException {
@@ -144,8 +148,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 		Long totalPrice = resultSet.getLong("total_price");
 		return new OrdersItems(id, totalPrice);
 	}
-	
-	
+
 	public OrdersItems calculate(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection

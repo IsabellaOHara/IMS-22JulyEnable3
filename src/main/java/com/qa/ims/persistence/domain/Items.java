@@ -19,6 +19,10 @@ public class Items {
 			this.setPrice(price);
 		}
 
+		public Items() {
+			
+		}
+
 		public Long getId() {
 			return id;
 		}
@@ -35,7 +39,7 @@ public class Items {
 			this.itemName = itemName;
 		}
 
-		public static double getPrice() {
+		public double getPrice() {
 			return price;
 		}
 
