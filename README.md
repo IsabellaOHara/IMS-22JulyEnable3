@@ -12,8 +12,8 @@ This IMS can:
 ## Getting Started
 
 To run this application in your command line:
-1. Click on the target folder
-2. Find the file called ims-0.01-jar-with-dependencies.jar
+1. Find the file called ims-0.01-jar-with-dependencies.jar
+2. Download the file.
 3. Double click to run in your command line 
 4. If that doesn't work run the command java -jar jarfilename.jar
 
