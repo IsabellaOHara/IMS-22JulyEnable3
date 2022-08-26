@@ -12,7 +12,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.domain.Orders;
-import com.qa.ims.persistence.domain.OrdersItems;
 import com.qa.ims.utils.DBUtils;
 
 public class OrdersDAO implements Dao<Orders>{
@@ -21,9 +20,9 @@ public class OrdersDAO implements Dao<Orders>{
 
 	@Override
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
-		Long id = resultSet.getLong("order_id");
+		Long orderId = resultSet.getLong("order_id");
 		Long customerId = resultSet.getLong("customer_id");
-		return new Orders(id, customerId);
+		return new Orders(orderId, customerId);
 	}
 	
 	//seeing all the orders

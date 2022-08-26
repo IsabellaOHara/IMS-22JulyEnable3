@@ -19,13 +19,22 @@ import com.qa.ims.utils.DBUtils;
 public class OrdersItemsDAO implements Dao<OrdersItems>{
 	
 	public static final Logger LOGGER = LogManager.getLogger();
+<<<<<<< HEAD
 	 
+=======
+	Items item = new Items();
+	OrdersItems ordersItems = new OrdersItems();
+	
+
+	
+>>>>>>> 278abea68189648a2c83e32e0eeda15eebc1114a
 	@Override
 	public OrdersItems modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long orderId = resultSet.getLong("id");
 		Long itemId = resultSet.getLong("item_id");
 		Long quantity = resultSet.getLong("quantity");
 		return new OrdersItems(orderId, itemId, quantity);
+		
 	}
 	
 	@Override
@@ -137,8 +146,5 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 		
 
 	}
-	
-
-	
 	
 }

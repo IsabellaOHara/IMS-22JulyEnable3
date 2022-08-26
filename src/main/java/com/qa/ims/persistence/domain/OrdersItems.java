@@ -8,12 +8,24 @@ public class OrdersItems {
 	private Long quantity;
 	private Long id;
 	private Long itemId;
+	private double totalPrice;
+	
+	Items items = new Items();
 
 	public OrdersItems(Long id, Long itemId, Long quantity) {
 		super();
 		this.setId(id);
 		this.setItemId(itemId);
 		this.setQuantity(quantity);
+	}
+
+	public OrdersItems(Long id, double totalPrice) {
+		this.setId(id);
+		this.setTotalPrice(totalPrice); 
+	}
+	
+	public OrdersItems() {
+		
 	}
 
 	public Long getQuantity() {
@@ -59,6 +71,8 @@ public class OrdersItems {
 	}
 	
 	
-	
-	
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 }
