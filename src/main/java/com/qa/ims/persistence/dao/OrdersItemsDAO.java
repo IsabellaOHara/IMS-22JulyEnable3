@@ -19,6 +19,10 @@ import com.qa.ims.utils.DBUtils;
 public class OrdersItemsDAO implements Dao<OrdersItems>{
 	
 	public static final Logger LOGGER = LogManager.getLogger();
+	Items item = new Items();
+	OrdersItems ordersItems = new OrdersItems();
+	
+
 	
 	@Override
 	public OrdersItems modelFromResultSet(ResultSet resultSet) throws SQLException {
@@ -26,6 +30,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 		Long itemId = resultSet.getLong("item_id");
 		Long quantity = resultSet.getLong("quantity");
 		return new OrdersItems(orderId, itemId, quantity);
+		
 	}
 	
 	@Override
@@ -135,6 +140,29 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 		}
 		return 0;
 		
+
+	}
+	
+	public OrdersItems calculatorModelFromResultSet(ResultSet resultSet) throws SQLException {
+		Long id = resultSet.getLong("id");
+		Long totalPrice = resultSet.getLong("total_price");
+		return new OrdersItems(id, totalPrice);
+	}
+
+	public OrdersItems calculate(Long id) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("SELECT o.id, i.price * o.quantity AS total_price FROM orders_items o JOIN items i ON i.id = o.item_id WHERE o.id = ?");) {
+			statement.setLong(1, id);
+			try (ResultSet resultSet = statement.executeQuery();) {
+				resultSet.next();
+				return calculatorModelFromResultSet(resultSet);
+			}
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return null;
 
 	}
 	

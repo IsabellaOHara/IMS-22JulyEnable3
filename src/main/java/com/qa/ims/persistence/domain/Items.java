@@ -6,7 +6,7 @@ public class Items {
 
 		private Long id;
 		private String itemName;
-		private double price;
+		private static double price;
 		
 		public Items() {}
 		
@@ -19,6 +19,10 @@ public class Items {
 			this.setId(id);
 			this.setItemName(itemName);
 			this.setPrice(price);
+		}
+
+		public Items() {
+			
 		}
 
 		public Long getId() {
