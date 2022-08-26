@@ -71,7 +71,7 @@ public class OrdersController implements CrudController<Orders> {
 		Long customerId = utils.getLong();
 		Orders orders = ordersDAO.create(new Orders(customerId));
 		LOGGER.info("Would you like to add details to this order? Y/N?");
-		String details = scan.nextLine();
+		String details = utils.getString();;
 		if(details.equalsIgnoreCase("y")) {
 			boolean isRunning = true;
 				
@@ -85,7 +85,7 @@ public class OrdersController implements CrudController<Orders> {
 			LOGGER.info("Item added to order");
 	
 			LOGGER.info("Would you like to order another item? Y/N?");
-			String addAnother = scan.nextLine();
+			String addAnother = utils.getString();
 			if(addAnother.equalsIgnoreCase("n")) isRunning = false;
 			
 			}
@@ -118,7 +118,7 @@ public class OrdersController implements CrudController<Orders> {
 		LOGGER.info("Please enter the number of the option you would like"
 				+ "\n [1] delete an entire order from the system" +
 				"\n [2] delete an item from an order");
-		int response = scan.nextInt();
+		Long response = utils.getLong();
 		if(response == 1) {
 		LOGGER.info("Please enter the id of the order you would like to delete");
 		Long id = utils.getLong();
