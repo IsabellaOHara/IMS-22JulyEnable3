@@ -11,6 +11,12 @@ This IMS can:
 
 ## Getting Started
 
+To run this application in your command line:
+1. Click on the target folder
+2. Find the file called ims-0.01-jar-with-dependencies.jar
+3. Double click to run in your command line 
+4. If that doesn't work run the command java -jar jarfilename.jar
+
 Example user story path:
 As an employee, I want to add an item into the system, so that I can put new items in the inventory.
 1. Start the application
