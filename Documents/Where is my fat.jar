@@ -1,1 +1,5 @@
-I tried several times to build the fat.jar file and was unsuccessful as I was getting the error java.lang.IllegalArgumentException: Unsupported class file major version 62 and google was telling me I need to completely uninstall java then redownload it at a lower version but this didn't seem like a good fix. I tried reaching out for help but because of the delay on the presentations due to connection issues could not get any.
+I tried several times to build the fat.jar file and was unsuccessful as I was getting the error 
+java.lang.IllegalArgumentException: Unsupported class file major version 62 and google was telling me I need to completely uninstall 
+java then redownload it at a lower version but this didn't seem like a good fix. 
+I tried reaching out for help but because of the delay on the presentations due to connection issues could not get any.
+I managed to get the main branch to compile with 'mvn clean' then 'mvn compile' but I could not get the 'mvn package' to work becuase of the error I mentioned.
